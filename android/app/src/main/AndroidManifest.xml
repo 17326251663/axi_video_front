@@ -1,0 +1,53 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+  package="com.myvideo0_0_1">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+      android:name=".MainApplication"
+      android:label="@string/app_name"
+      android:icon="@mipmap/logo"
+      android:roundIcon="@mipmap/logo"
+      android:allowBackup="false"
+      android:theme="@style/AppTheme"
+      android:usesCleartextTraffic="true"
+      >
+<!-- android:usesCleartextTraffic="true" -->
+
+      <activity
+        android:name=".MainActivity"
+        android:label="@string/app_name"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize|uiMode"
+        android:launchMode="singleTask"
+        android:windowSoftInputMode="adjustResize">
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+         <intent-filter>
+                <!--协议部分，随便设置-->
+                <data
+                    android:host="axivideo.com"
+                    android:path="/pageDetail"
+                    android:port="9999"
+                    android:scheme="axxi"/>
+                <!--下面这几行也必须得设置-->
+                <!--表示该页面可以被隐式调用，必须加上该项-->
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.VIEW"/>
+                <!--如果希望该应用可以通过浏览器的连接启动，则添加该项-->
+                <category android:name="android.intent.category.BROWSABLE"/>
+            </intent-filter>
+
+        <!-- <intent-filter>
+        <action android:name="android.intent.action.VIEW"/>  
+        <category android:name="android.intent.category.DEFAULT" />  
+        <category android:name="android.intent.category.BROWSABLE" />  
+        <data android:scheme="axivideo" android:host="8081" android:pathPrefix="/gkp"/>  
+        </intent-filter> -->
+
+      </activity>
+      <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+    </application>
+
+</manifest>
